@@ -15,7 +15,12 @@ app.use(express.json({ limit: '1mb' }));
 if (process.env.NODE_ENV !== 'test') app.use(morgan('dev'));
 
 app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
-
+app.get('/', (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: 'Digital Mandi API is running successfully!'
+    });
+});
 app.get('/api/health', (req, res) => res.json({ ok: true, time: new Date() }));
 app.use('/api/auth', require('./routes/auth'));
 app.use('/api/users', require('./routes/users'));
