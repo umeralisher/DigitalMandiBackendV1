@@ -18,7 +18,7 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/', (req, res) => {
     res.status(200).json({
         success: true,
-        message: 'Digital Mandi API is running successfully!'
+        message: 'Digital Mandi API  running successfully!'
     });
 });
 app.get('/api/health', (req, res) => res.json({ ok: true, time: new Date() }));
